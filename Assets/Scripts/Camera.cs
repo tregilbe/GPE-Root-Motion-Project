@@ -21,7 +21,7 @@ public class Camera : MonoBehaviour
     {
         // Move our position a step closer to the target.
         float step = speed * Time.deltaTime; // calculate distance to move
-        Vector3 targetArea = new Vector3(target.position.x, target.position.y + 10, target.position.z);
-        transform.position = Vector3.MoveTowards(transform.position, targetArea, step);
+        Vector3 targetArea = new Vector3(target.position.x, target.position.y + 10, target.position.z); // Make the target area just above the player
+        transform.position = Vector3.MoveTowards(transform.position, targetArea, step); // Moves the camera towards the target area made above, using te step speed to control th speed at which it moves
     }
 }

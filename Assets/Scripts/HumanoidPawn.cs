@@ -8,10 +8,6 @@ public class HumanoidPawn : Pawn
     [SerializeField] private Animator _anim;
     public float speed = 1;
 
-    // Aiming cursor
-    public Transform target;
-    public float rotationSpeed = 90f;
-
     // Start is called before the first frame update
     public override void Start()
     {
@@ -22,8 +18,7 @@ public class HumanoidPawn : Pawn
     // Update is called once per frame
     public override void Update()
     {
-        // Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
-        // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
     }
 
     public override void Move(Vector3 moveDirection)
@@ -38,8 +33,10 @@ public class HumanoidPawn : Pawn
         _anim.SetFloat("Forward", moveDirection.z * speed);
         _anim.SetFloat("Right", moveDirection.x * speed);
         base.Move(moveDirection);
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        if (Input.GetKeyDown(KeyCode.Space)) // If the player presses Space, run this
         {
+            // Activate the trigger to start the jump animaton
             _anim.SetTrigger("Jump");
         }
     }

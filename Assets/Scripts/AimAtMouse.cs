@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class AimAtMouse : MonoBehaviour
 {
+    public Transform target;
+    public float rotationSpeed = 90f;
+
     private void Update()
     {
-        //Plane plane = new Plane(Vector3.up, transform.position);
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //float distance;
-        //if (plane.Raycast(ray, out distance))
-        {
-          //  transform.position = ray.GetPoint(distance);
-            // Quaternion targetRotation = Quaternion.LookRotation(transform.position - transform.position);
-            // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
+        Quaternion targetRotation = Quaternion.LookRotation(transform.position - transform.position);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
