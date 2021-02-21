@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraMover : MonoBehaviour
 {
     // Adjust the speed for the application.
     public float speed = 1.0f;

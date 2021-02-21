@@ -589,8 +589,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _anim: {fileID: 0}
   speed: 1
-  target: {fileID: 2083938747}
-  rotationSpeed: 90
 --- !u!136 &1224227001
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -610,6 +608,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f076456e152db73418be5c279ebb3d8c, type: 3}
   m_PrefabInstance: {fileID: 1276958640}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1224227003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224226997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1b2e1d360e2ef4fa0933c6afb4bf7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rotationSpeed: 90
 --- !u!1001 &1276958640
 PrefabInstance:
   m_ObjectHideFlags: 0
