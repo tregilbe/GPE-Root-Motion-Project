@@ -38,5 +38,9 @@ public class HumanoidPawn : Pawn
         _anim.SetFloat("Forward", moveDirection.z * speed);
         _anim.SetFloat("Right", moveDirection.x * speed);
         base.Move(moveDirection);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _anim.SetTrigger("Jump");
+        }
     }
 }
