@@ -16,5 +16,10 @@ public class InputController : Controller
         // Every frame, send movement to Pawn
         pawn.Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
         base.Update();
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            
+        }
     }
 }
