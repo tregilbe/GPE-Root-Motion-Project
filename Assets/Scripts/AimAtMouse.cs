@@ -9,8 +9,8 @@ public class AimAtMouse : MonoBehaviour
     private void Update()
     {
         //Detect when there is a mouse click
-        if (Input.GetMouseButton(0))
-        {
+        //if (Input.GetMouseButton(0))
+        //{
             // Create a plane that the mouse can click on
             Plane plane = new Plane(Vector3.up, transform.position);
 
@@ -29,6 +29,6 @@ public class AimAtMouse : MonoBehaviour
                 Quaternion targetRotation = Quaternion.LookRotation(hitPoint - transform.position);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
-        }
+        //}
     }
 }

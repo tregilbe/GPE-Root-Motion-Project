@@ -18,15 +18,16 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifespan);
 
         // Start our bullet moving forward method 1 with rigidbody
+        //  Unity physics take over, Tank game used this
         rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * fireSpeed;
+        // rb.velocity = transform.forward * fireSpeed;  
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Move bullet forward with transform per frame
-        // transform.position += transform.forward * (fireSpeed * Time.deltaTime);
+        // Move bullet forward with transform per frame method 2
+        transform.position += transform.forward * (fireSpeed * Time.deltaTime); // Using this method cause it uses time.deltatime
     }
 
     public void OnTriggerEnter(Collider other)
