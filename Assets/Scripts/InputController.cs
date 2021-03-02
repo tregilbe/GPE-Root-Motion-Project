@@ -19,7 +19,22 @@ public class InputController : Controller
 
         if (Input.GetButtonDown("Fire1"))
         {
-            
+            pawn.weapon.AttackStart();
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            pawn.weapon.AttackEnd();
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            pawn.weapon.AltAttackStart();
+        }
+
+        if (Input.GetButtonUp("Fire2"))
+        {
+            pawn.weapon.AltAttackEnd();
         }
     }
 }

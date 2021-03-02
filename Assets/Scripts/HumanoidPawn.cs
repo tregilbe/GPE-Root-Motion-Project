@@ -9,7 +9,8 @@ public class HumanoidPawn : Pawn
     [SerializeField] private Animator _anim;
     [Header("Data")]
     public float speed = 1;
-    public Weapon weapon;
+    [Range(0, 1)] public float accuracy;
+    // public Weapon weapon;
 
     // Start is called before the first frame update
     public override void Start()
