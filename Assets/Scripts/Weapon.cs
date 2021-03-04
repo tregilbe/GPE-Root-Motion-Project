@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour
 {
     [Header("IK Points")]
     public Transform rightHandPoint;
-    public Transform leftHadPoint;
+    public Transform leftHandPoint;
 
     [Header("Firing Events")]
     public UnityEvent OnAttackStart;
