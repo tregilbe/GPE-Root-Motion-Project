@@ -69,12 +69,17 @@ public class WeaponRifle : Weapon
 
     public void Shoot3Bullets()
     {
-        for (int i=0; i < 3; i++)
+        if (Time.time >= nextShootTime)
         {
-            // Allow me to shoot right now
-            nextShootTime = Time.time;
-            // Shoot
-            ShootBullet();
+            for (int i = 0; i < 3; i++)
+            {
+                // Allow me to shoot right now
+                nextShootTime = Time.time;
+                // Shoot
+                ShootBullet();
+            }
+            // delay our next shot
+            nextShootTime = Time.time + timeBetweenShots;
         }
     }
 
