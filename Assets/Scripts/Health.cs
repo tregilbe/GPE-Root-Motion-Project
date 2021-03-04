@@ -34,5 +34,6 @@ public class Health : MonoBehaviour
     public void Die()
     {
         // TODO: Wht happens when the object dies
+        // TODO: Add Ragdoll Effect
     }
 }
