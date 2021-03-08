@@ -34,6 +34,7 @@ public class Health : MonoBehaviour
     public void Die()
     {
         // TODO: Wht happens when the object dies
+        Destroy(this.gameObject); // Placeholder for death aniimation or effect
         // TODO: Add Ragdoll Effect
     }
 }
