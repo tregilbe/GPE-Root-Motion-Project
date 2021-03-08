@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class WeaponPickup : Pickup
 {
-    [Header("Events")]
-    [SerializeField, Tooltip("Which Weapon to equip.")]
-    public UnityEvent onEquip;
+    public bool Pistol;
+    public bool Shotgun;
+    public bool Rifle; 
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -21,8 +21,22 @@ public class WeaponPickup : Pickup
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<HumanoidPawn>() != null) // If the other ame object has a humanoid pawn script
+        if (other.gameObject.GetComponent<HumanoidPawn>() != null) // If the other game object has a humanoid pawn script
         {
+            if (Pistol == true) // If this is a pistol
+            {
+                other.gameObject.GetComponent<HumanoidPawn>().EquipPistol();
+            }
+
+            if (Shotgun == true) // If this is a Shotgun
+            {
+                other.gameObject.GetComponent<HumanoidPawn>().EquipShotgun();
+            }
+
+            if (Rifle == true) // If this is a Rifle
+            {
+                other.gameObject.GetComponent<HumanoidPawn>().EquipRifle();
+            }
             Destroy(this.gameObject); // Destroy this object, as the event system handles it
         }
     }

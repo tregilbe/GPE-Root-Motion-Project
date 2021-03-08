@@ -884,21 +884,9 @@ MonoBehaviour:
   xSpeed: 0
   ySpeed: 0
   zSpeed: 75
-  onEquip:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1224227000}
-        m_TargetAssemblyTypeName: HumanoidPawn, Assembly-CSharp
-        m_MethodName: EquipPistol
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  Pistol: 1
+  Shotgun: 0
+  Rifle: 0
 --- !u!65 &333844855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1272,21 +1260,9 @@ MonoBehaviour:
   xSpeed: 0
   ySpeed: 0
   zSpeed: 75
-  onEquip:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1224227000}
-        m_TargetAssemblyTypeName: HumanoidPawn, Assembly-CSharp
-        m_MethodName: EquipShotgun
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  Pistol: 0
+  Shotgun: 1
+  Rifle: 0
 --- !u!65 &767573423
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2773,21 +2749,9 @@ MonoBehaviour:
   xSpeed: 0
   ySpeed: 0
   zSpeed: 75
-  onEquip:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1224227000}
-        m_TargetAssemblyTypeName: HumanoidPawn, Assembly-CSharp
-        m_MethodName: EquipRifle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  Pistol: 0
+  Shotgun: 0
+  Rifle: 1
 --- !u!65 &1864587705
 BoxCollider:
   m_ObjectHideFlags: 0
