@@ -556,7 +556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358848969765748744, guid: 06c813cf854462d4c86a7cd38f98536b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.1614728
+      value: 2.643
       objectReference: {fileID: 0}
     - target: {fileID: 7358848969765748744, guid: 06c813cf854462d4c86a7cd38f98536b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -884,6 +884,21 @@ MonoBehaviour:
   xSpeed: 0
   ySpeed: 0
   zSpeed: 75
+  onEquip:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1224227000}
+        m_TargetAssemblyTypeName: HumanoidPawn, Assembly-CSharp
+        m_MethodName: EquipPistol
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &333844855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -918,7 +933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.3995495
+      value: 4.741
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1257,6 +1272,21 @@ MonoBehaviour:
   xSpeed: 0
   ySpeed: 0
   zSpeed: 75
+  onEquip:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1224227000}
+        m_TargetAssemblyTypeName: HumanoidPawn, Assembly-CSharp
+        m_MethodName: EquipShotgun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &767573423
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1413,6 +1443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetprefab: {fileID: 849870443029657231, guid: 68355f4caac575f4a8cf1522959d0302, type: 3}
   currentTarget: {fileID: 0}
+  timeBetween: 10
+  nextSpawnTime: 0
 --- !u!4 &862210711
 Transform:
   m_ObjectHideFlags: 0
@@ -2741,6 +2773,21 @@ MonoBehaviour:
   xSpeed: 0
   ySpeed: 0
   zSpeed: 75
+  onEquip:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1224227000}
+        m_TargetAssemblyTypeName: HumanoidPawn, Assembly-CSharp
+        m_MethodName: EquipRifle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &1864587705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2859,6 +2906,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetprefab: {fileID: 849870443029657231, guid: 68355f4caac575f4a8cf1522959d0302, type: 3}
   currentTarget: {fileID: 0}
+  timeBetween: 10
+  nextSpawnTime: 0
 --- !u!4 &2035396673
 Transform:
   m_ObjectHideFlags: 0
@@ -2904,6 +2953,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetprefab: {fileID: 849870443029657231, guid: 68355f4caac575f4a8cf1522959d0302, type: 3}
   currentTarget: {fileID: 0}
+  timeBetween: 10
+  nextSpawnTime: 0
 --- !u!4 &2118693735
 Transform:
   m_ObjectHideFlags: 0
