@@ -43,6 +43,11 @@ public class Bullet : MonoBehaviour
         }
 
         // TODO: Whatever a bullet does when it hitsthat I forgot to add
+        // Add force to the object i there is a rigidbody
+        if (otherObject.GetComponent<Rigidbody>() != false)
+        {
+            otherObject.GetComponent<Rigidbody>().AddForce((transform.position - Camera.main.transform.position).normalized * 50);
+        }
 
         // Destroy this bullet
         Destroy(gameObject);

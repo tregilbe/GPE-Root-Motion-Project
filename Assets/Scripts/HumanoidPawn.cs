@@ -10,6 +10,7 @@ public class HumanoidPawn : Pawn
     [Header("Data")]
     public float speed = 1;
     [Range(0, 1)] public float accuracy;
+
     // public Weapon weapon;
     public Transform PistolAttachPoint;
     public Transform RifleAttachPoint;
@@ -18,11 +19,29 @@ public class HumanoidPawn : Pawn
     public Weapon Rifle;
     public Weapon Shotgun;
 
+    // Ragdoll 
+    private Rigidbody[] childRigidbodies;
+    private Collider[] childColliders;
+    private Collider topCollider;
+    private Rigidbody topRigidbody;
+    // Also needs animator, already have it as _anim
+
     // Start is called before the first frame update
     public override void Start()
     {
         // Load our components
         _anim = GetComponent<Animator>();
+
+        // Get our main collider and rigidbody
+        topCollider = GetComponent<Collider>();
+        topRigidbody = GetComponent<Rigidbody>();
+
+        // Get our child components (Note: Also includes self!)
+        childColliders = GetComponentsInChildren<Collider>();
+        childRigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        // Stop Ragdoll at start
+        StopRagdoll();
     }
 
     // Update is called once per frame
@@ -155,6 +174,72 @@ public class HumanoidPawn : Pawn
         {
             Destroy(weapon.gameObject);
             weapon = null;
+        }
+    }
+
+    public void StartRagdoll()
+    {
+        // Turn on all child colliders
+        foreach (Collider collider in childColliders)
+        {
+                collider.enabled = true;          
+        }
+
+        // Turn on all child rigidbodies
+        foreach (Rigidbody rb in childRigidbodies)
+        {
+            rb.isKinematic = false;
+        }
+
+        // Turn off animator
+        _anim.enabled = false;
+
+        // Turn off top collider
+        topCollider.enabled = false;
+
+        // Turn off my top rigidbody
+        topRigidbody.isKinematic = true;
+
+        // Turn off aim at mouse
+        this.GetComponent<AimAtMouse>().enabled = false;
+
+        // turn off current weapon if any
+        if (weapon != null)
+        {
+            weapon.enabled = false;
+        }        
+    }
+
+    public void StopRagdoll()
+    {
+        // Turn off all child colliders
+        foreach (Collider collider in childColliders)
+        {
+            collider.enabled = false;
+        }
+
+        // Turn off all child rigidbodies
+        foreach (Rigidbody rb in childRigidbodies)
+        {
+            rb.isKinematic = true;
+        }
+
+        // Turn on top collider
+        topCollider.enabled = true;
+
+        // Turn on my top rigidbody
+        topRigidbody.isKinematic = false;
+
+        // Turn on animator
+        _anim.enabled = true;
+
+        // Turn on aim at mouse
+        this.GetComponent<AimAtMouse>().enabled = true;
+
+        // turn on current weapon if any
+        if (weapon != null)
+        {
+            weapon.enabled = true;
         }
     }
 }

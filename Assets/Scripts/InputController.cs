@@ -17,24 +17,27 @@ public class InputController : Controller
         pawn.Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
         base.Update();
 
-        if (Input.GetButtonDown("Fire1"))
+        if (pawn.GetComponent<HumanoidPawn>().weapon != false)
         {
-            pawn.weapon.AttackStart();
-        }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                pawn.weapon.AttackStart();
+            }
 
-        if (Input.GetButtonUp("Fire1"))
-        {
-            pawn.weapon.AttackEnd();
-        }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                pawn.weapon.AttackEnd();
+            }
 
-        if (Input.GetButtonDown("Fire2"))
-        {
-            pawn.weapon.AltAttackStart();
-        }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                pawn.weapon.AltAttackStart();
+            }
 
-        if (Input.GetButtonUp("Fire2"))
-        {
-            pawn.weapon.AltAttackEnd();
+            if (Input.GetButtonUp("Fire2"))
+            {
+                pawn.weapon.AltAttackEnd();
+            }
         }
     }
 }

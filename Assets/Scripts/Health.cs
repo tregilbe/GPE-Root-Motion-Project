@@ -58,7 +58,13 @@ public class Health : MonoBehaviour
     public void Die()
     {
         // TODO: What happens when the object dies
-        Destroy(this.gameObject); // Placeholder for death aniimation or effect
-        // TODO: Add Ragdoll Effect
+        if (this.GetComponent<HumanoidPawn>() == null) // If the object does not have a humanoid pawn script, destroy it, covers the targets
+        {
+            Destroy(this.gameObject);
+        }
+        else if (this.GetComponent<HumanoidPawn>() != null)
+        {
+            this.GetComponent<HumanoidPawn>().StartRagdoll();
+        }
     }
 }
