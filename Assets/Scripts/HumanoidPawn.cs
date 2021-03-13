@@ -26,6 +26,14 @@ public class HumanoidPawn : Pawn
     private Rigidbody topRigidbody;
     // Also needs animator, already have it as _anim
 
+    // Boolean for cheats
+    public bool CheatsEnabled = false;
+
+    // Boolean for starting weapon
+    public bool StartWithPistol = false;
+    public bool StartWithRifle = false;
+    public bool StartWithShotgun = false;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -39,6 +47,20 @@ public class HumanoidPawn : Pawn
         // Get our child components (Note: Also includes self!)
         childColliders = GetComponentsInChildren<Collider>();
         childRigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        // If a starting weapon is choosen, equip it
+        if (StartWithPistol == true)
+        {
+            EquipPistol();
+        }
+        else if (StartWithRifle == true)
+        {
+            EquipRifle();
+        }
+        else if (StartWithShotgun == true)
+        {
+            EquipShotgun();
+        }
 
         // Stop Ragdoll at start
         StopRagdoll();
@@ -69,24 +91,27 @@ public class HumanoidPawn : Pawn
             _anim.SetTrigger("Jump");
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (CheatsEnabled == true)
         {
-            EquipPistol();
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                EquipPistol();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            EquipRifle();
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                EquipRifle();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            EquipShotgun();
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                EquipShotgun();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            UnequipWeapon();
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                UnequipWeapon();
+            }
         }
     }
 
@@ -201,12 +226,15 @@ public class HumanoidPawn : Pawn
         topRigidbody.isKinematic = true;
 
         // Turn off aim at mouse
-        this.GetComponent<AimAtMouse>().enabled = false;
+        if (this.GetComponent<AimAtMouse>() != null)
+        {
+            this.GetComponent<AimAtMouse>().enabled = false;
+        }
 
         // turn off current weapon if any
         if (weapon != null)
         {
-            weapon.enabled = false;
+            UnequipWeapon();
         }        
     }
 
@@ -234,7 +262,10 @@ public class HumanoidPawn : Pawn
         _anim.enabled = true;
 
         // Turn on aim at mouse
-        this.GetComponent<AimAtMouse>().enabled = true;
+        if (this.GetComponent<AimAtMouse>() != null)
+        {
+            this.GetComponent<AimAtMouse>().enabled = true;
+        }
 
         // turn on current weapon if any
         if (weapon != null)

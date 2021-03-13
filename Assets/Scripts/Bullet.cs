@@ -46,7 +46,10 @@ public class Bullet : MonoBehaviour
         // Add force to the object i there is a rigidbody
         if (otherObject.GetComponent<Rigidbody>() != false)
         {
-            otherObject.GetComponent<Rigidbody>().AddForce((transform.position - Camera.main.transform.position).normalized * 50);
+            if (otherObject.tag != "Enemy" && otherObject.tag != "Player") // Do not add force if the object is tagged as a player or Enemy
+            {
+                otherObject.GetComponent<Rigidbody>().AddForce((transform.position - Camera.main.transform.position).normalized * 50);
+            }
         }
 
         // Destroy this bullet
