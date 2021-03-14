@@ -235,7 +235,13 @@ public class HumanoidPawn : Pawn
         if (weapon != null)
         {
             UnequipWeapon();
-        }        
+        }
+
+        // Remove target, to disable movement
+        if (this.GetComponent<AIController>() != null)
+        {
+            this.GetComponent<AIController>().target = null;
+        }
     }
 
     public void StopRagdoll()

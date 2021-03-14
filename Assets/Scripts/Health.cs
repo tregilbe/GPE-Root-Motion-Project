@@ -16,7 +16,6 @@ public class Health : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +64,12 @@ public class Health : MonoBehaviour
         else if (this.GetComponent<HumanoidPawn>() != null)
         {
             this.GetComponent<HumanoidPawn>().StartRagdoll();
+            Invoke("Destroy", 5); // Invoke the Destroy method to delete the object in 3 seconds
         }
+    }
+
+    public void Destroy()
+    {
+        Destroy(this.gameObject);
     }
 }

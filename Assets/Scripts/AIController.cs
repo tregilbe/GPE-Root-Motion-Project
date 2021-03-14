@@ -9,11 +9,14 @@ public class AIController : Controller
     private NavMeshAgent agent;
     private Animator anim;
 
+    public float rotationSpeed = 45f;
+
     // Start is called before the first frame update
     public override void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = pawn.GetComponent<Animator>();
+        target = GameObject.FindGameObjectWithTag("Player");
         base.Start();
     }
 
@@ -27,6 +30,16 @@ public class AIController : Controller
         pawn.Move(agent.desiredVelocity);
 
         // NOTE: At this point, both the animator and the navmesh agent are moving
+
+        // Test the fire funcion
+        if (pawn.weapon != null)
+        {
+            pawn.weapon.AttackStart();
+        }
+
+        // Rotate towards player
+        Quaternion targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         base.Update();
     }
