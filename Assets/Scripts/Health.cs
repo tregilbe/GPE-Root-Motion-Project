@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
         else if (this.GetComponent<HumanoidPawn>() != null)
         {
             this.GetComponent<HumanoidPawn>().StartRagdoll();
-            Invoke("Destroy", 5); // Invoke the Destroy method to delete the object in 3 seconds
+            Invoke("Destroy", 5); // Invoke the Destroy method to delete the object in 5 seconds
         }
     }
 

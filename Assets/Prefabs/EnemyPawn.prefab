@@ -2544,9 +2544,9 @@ MonoBehaviour:
   Rifle: {fileID: 759100614, guid: f7d3d834b14a54d48aac624e0e5978c8, type: 3}
   Shotgun: {fileID: 1972333808, guid: 929956f4588e9eb49b1dff0f1fb16a8c, type: 3}
   CheatsEnabled: 0
-  StartWithPistol: 1
+  StartWithPistol: 0
   StartWithRifle: 0
-  StartWithShotgun: 0
+  StartWithShotgun: 1
 --- !u!114 &2008302167820652112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2595,7 +2595,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.75
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

@@ -5942,6 +5942,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 919132148149119713}
+    - target: {fileID: 2008302167820652118, guid: 8d240d35685f55049833da9356a2e26d, type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2008302167820652119, guid: 8d240d35685f55049833da9356a2e26d, type: 3}
       propertyPath: m_Name
       value: EnemyPawn
