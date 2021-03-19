@@ -21,7 +21,7 @@ public class HealthPickup : Pickup
     {
         if (other.gameObject.GetComponent<Health>() != null) // if the other object has a health component
         {
-            if (other.gameObject.GetComponent<Health>().currentHealth < other.gameObject.GetComponent<Health>().maxHealth) // if current is less than max
+            if (other.gameObject.GetComponent<Health>().currentHealth > 0 && other.gameObject.GetComponent<Health>().currentHealth < other.gameObject.GetComponent<Health>().maxHealth) // if current is less than max
             {               
                 other.gameObject.GetComponent<Health>().Heal(health); // heal
                 Destroy(this.gameObject); // Then destroy this component

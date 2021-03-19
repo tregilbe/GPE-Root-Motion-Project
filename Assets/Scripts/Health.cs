@@ -65,6 +65,16 @@ public class Health : MonoBehaviour
         {
             this.GetComponent<HumanoidPawn>().StartRagdoll();
             Invoke("Destroy", 5); // Invoke the Destroy method to delete the object in 5 seconds
+
+            if (this.gameObject.tag == "Player") // If this object is tagged as the player, start the respawn method
+            {
+                GameManager.Instance.HandlePlayerDeath();
+            }
+
+            if (this.gameObject.tag == "Enemy") // If this is an enemy, run the drop script
+            {
+                this.gameObject.GetComponent<ItemDrop>().DropRandomItem();
+            }
         }
     }
 

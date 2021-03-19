@@ -91,6 +91,8 @@ public class WeaponRifle : Weapon
             GameObject myBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Bullet myBulletScript = myBullet.GetComponent<Bullet>();
 
+            myBulletScript.origin = GetComponentInParent<Transform>();
+
             // TODO: Send all appropriate data to the bullet
             myBulletScript.damageDone = damageDone;
 

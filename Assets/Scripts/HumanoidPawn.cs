@@ -240,7 +240,8 @@ public class HumanoidPawn : Pawn
         // Remove target, to disable movement
         if (this.GetComponent<AIController>() != null)
         {
-            this.GetComponent<AIController>().target = null;
+            // this.GetComponent<AIController>().target = null;
+            this.GetComponent<AIController>().enabled = false;
         }
     }
 

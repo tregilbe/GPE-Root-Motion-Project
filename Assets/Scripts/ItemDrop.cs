@@ -13,6 +13,7 @@ public class ItemDrop : MonoBehaviour
 {
     public List<itemDrop> drops;
     private List<int> CDFArray;
+    public Vector3 offset;
 
     public void DropRandomItem()
     {
@@ -41,7 +42,9 @@ public class ItemDrop : MonoBehaviour
         if (selectedIndex < 0)
             selectedIndex = ~selectedIndex;
         // Instantiate the items
-        Instantiate(drops[selectedIndex].itemToDrop, transform.position, transform.rotation);
+        Debug.Log("NOW INSTANTIATING OBJECT");
+        Instantiate(drops[selectedIndex].itemToDrop, transform.position + offset, transform.rotation);
+        Debug.Log("DONE");
     }
 
     // Start is called before the first frame update

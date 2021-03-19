@@ -22,6 +22,9 @@ public class TargetSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.isPaused)
+            return;
+
         if (currentTarget == null)
         {
             nextSpawnTime += Time.deltaTime;

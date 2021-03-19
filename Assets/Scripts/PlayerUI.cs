@@ -7,16 +7,19 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public Health health;
-    private Text text;
+    public Text text;
+    public Slider slider;
 
     private void Awake()
     {
-        text = GetComponent<Text>();
+        //text = GetComponent<Text>();
+        //slider = GetComponent<Slider>();
     }
 
     private void Update()
     {
         text.text = string.Format("Health: " + health.currentHealth + "%");
         // text.text = string.Format("Health: {0}%", Mathf.RoundToInt(health.Percent * 100f));
+        slider.value = health.currentHealth;
     }
 }

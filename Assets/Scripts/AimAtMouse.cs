@@ -8,11 +8,14 @@ public class AimAtMouse : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.isPaused)
+            return;
+
         //Detect when there is a mouse click
         //if (Input.GetMouseButton(0))
         //{
-            // Create a plane that the mouse can click on
-            Plane plane = new Plane(Vector3.up, transform.position);
+        // Create a plane that the mouse can click on
+        Plane plane = new Plane(Vector3.up, transform.position);
 
             //Create a ray from the Mouse click position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Use UnityEngine.Camera since I have a script named Camera - bad choice - FIXED

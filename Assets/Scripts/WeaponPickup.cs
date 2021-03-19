@@ -21,7 +21,7 @@ public class WeaponPickup : Pickup
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<HumanoidPawn>() != null) // If the other game object has a humanoid pawn script
+        if (other.gameObject.GetComponent<HumanoidPawn>() != null && other.gameObject.GetComponent<Health>().currentHealth > 0) // If the other game object has a humanoid pawn script
         {
             if (Pistol == true) // If this is a pistol
             {
@@ -37,6 +37,7 @@ public class WeaponPickup : Pickup
             {
                 other.gameObject.GetComponent<HumanoidPawn>().EquipRifle();
             }
+
             Destroy(this.gameObject); // Destroy this object, as the event system handles it
         }
     }

@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float fireSpeed;
     public float damageDone;
     public GameObject owner;
+    public Transform origin;
     public float lifespan = 1.5f;
 
     private Rigidbody rb;
@@ -26,6 +27,9 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.isPaused)
+            return;
+
         // Move bullet forward with transform per frame method 2
         transform.position += transform.forward * (fireSpeed * Time.deltaTime); // Using this method cause it uses time.deltatime
     }
@@ -48,7 +52,10 @@ public class Bullet : MonoBehaviour
         {
             if (otherObject.tag != "Enemy" && otherObject.tag != "Player") // Do not add force if the object is tagged as a player or Enemy
             {
-                otherObject.GetComponent<Rigidbody>().AddForce((transform.position - Camera.main.transform.position).normalized * 50);
+                // otherObject.GetComponent<Rigidbody>().AddForce((transform.position - Camera.main.transform.position).normalized * 50);
+                // otherObject.GetComponent<Rigidbody>().AddForceAtPosition(gameObject.transform.forward * 50f, otherObject, ForceMode.VelocityChange);
+                // Vector3 forceDirection = (origin.transform.position - gameObject.transform.position);
+                // otherObject.GetComponent<Rigidbody>().AddRelativeForce(forceDirection, ForceMode.VelocityChange);
             }
         }
 
