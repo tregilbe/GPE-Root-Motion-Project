@@ -11,6 +11,8 @@ public class TargetSpawner : MonoBehaviour
     public float nextSpawnTime;
 
     public Vector3 scale;
+
+    public Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class TargetSpawner : MonoBehaviour
             if (nextSpawnTime > timeBetween)
             {
                 nextSpawnTime = Time.time;
-                currentTarget = Instantiate(targetprefab, transform.position, transform.rotation);
+                currentTarget = Instantiate(targetprefab, transform.position + offset, transform.rotation);
                 nextSpawnTime = 0;
             }
         }
