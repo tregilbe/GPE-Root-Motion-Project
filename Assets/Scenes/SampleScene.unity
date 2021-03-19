@@ -4586,7 +4586,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 8195168944079446492, guid: 24f4c653c272b604daaecc9473f04f9b, type: 3}
   playerSpawnPoint: {fileID: 1047160969}
   playerRespawnDelay: 5
-  Lives: 0
+  Lives: 3
   isPaused: 0
 --- !u!4 &1917333726
 Transform:
