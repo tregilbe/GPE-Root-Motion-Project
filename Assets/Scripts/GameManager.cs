@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +17,14 @@ public class GameManager : MonoBehaviour
     public int Lives;
     public bool isPaused = false;
 
+    // Public reference to current player, for UI
+    public float playerHealth;
+    public Weapon playerWeapon;
+
+    // Canvas's for game over and pause
+    public Canvas pauseMenu;
+    public Canvas gameOver;
+
     // Any time a GameManager is spawned it sets the static Instance variable to reference itself
     private void Awake()
     {
@@ -25,6 +36,10 @@ public class GameManager : MonoBehaviour
     {
         // Player = GameObject.FindGameObjectWithTag("Player");
         SpawnPlayer();
+
+        // Disable both menus till needed
+        pauseMenu.enabled = false;
+        gameOver.enabled = false;
     }
 
     // Update is called once per frame
@@ -41,6 +56,10 @@ public class GameManager : MonoBehaviour
                 Unpause();
             }
         }
+
+        playerHealth = GameManager.Instance.Player.GetComponent<Health>().currentHealth;
+
+        playerWeapon = GameManager.Instance.Player.GetComponent<HumanoidPawn>().weapon;
     }
 
     private void SpawnPlayer()
@@ -50,26 +69,52 @@ public class GameManager : MonoBehaviour
 
     public void HandlePlayerDeath()
     {
-        if (Lives > 0)
+        if (Lives <= 0)
         {
-            Invoke("SpawnPlayer", playerRespawnDelay);
-            Lives--;
+            // Game Over!
+            Debug.Log("0 LIVES DETECTED");
+            gameOver.enabled = true; // enable game over menu
+
         }
         else
         {
-            // Game Over!
+            Debug.Log("PLAYER HAS LIVES LEFT");
+            Invoke("SpawnPlayer", playerRespawnDelay);
+            Lives--;
         }
         
     }
+
+    // Functions for UI
     public void Pause()
     {
-        isPaused = true;
-        Time.timeScale = 0f;
+        isPaused = true; // sett bool to true
+        Time.timeScale = 0f; // time scale to 0, time stops
+        pauseMenu.enabled = true; // enable pause menu canvas SET IN INSPECTOR
     }
 
     public void Unpause()
     {
         isPaused = false;
         Time.timeScale = 1f;
+        pauseMenu.enabled = false;
+    }
+
+    public void QuitCurrentGame() // Pause menu quit, returns to main menu
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void ButtonQuit() // Closes game 
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
+
+    public void ButtonContinue()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }

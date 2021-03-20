@@ -1300,6 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e26a7cd7a63954e9c603dc7e955c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerUI: {fileID: 1952758230907495063}
   health: {fileID: 9041679312234935169}
   text: {fileID: 7269048451278653958}
   slider: {fileID: 1786582207644015078}
@@ -1612,6 +1613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e26a7cd7a63954e9c603dc7e955c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerUI: {fileID: 0}
   health: {fileID: 9041679312234935169}
   text: {fileID: 0}
   slider: {fileID: 0}

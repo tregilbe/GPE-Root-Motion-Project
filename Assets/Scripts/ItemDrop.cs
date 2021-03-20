@@ -42,9 +42,7 @@ public class ItemDrop : MonoBehaviour
         if (selectedIndex < 0)
             selectedIndex = ~selectedIndex;
         // Instantiate the items
-        Debug.Log("NOW INSTANTIATING OBJECT");
         Instantiate(drops[selectedIndex].itemToDrop, transform.position + offset, transform.rotation);
-        Debug.Log("DONE");
     }
 
     // Start is called before the first frame update
