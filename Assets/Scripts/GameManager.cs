@@ -78,15 +78,13 @@ public class GameManager : MonoBehaviour
             // Game Over!
             Debug.Log("0 LIVES DETECTED");
             gameOver.enabled = true; // enable game over menu
-
         }
         else
         {
             Debug.Log("PLAYER HAS LIVES LEFT");
             Invoke("SpawnPlayer", playerRespawnDelay);
             Lives--;
-        }
-        
+        }       
     }
 
     // Functions for UI
