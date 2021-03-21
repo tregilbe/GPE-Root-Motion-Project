@@ -2698,13 +2698,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops:
   - itemToDrop: {fileID: 3833157470678208075, guid: 63ca48c9eef7c6749b546e4eb80f8963, type: 3}
-    weight: 3
+    weight: 4
   - itemToDrop: {fileID: 6103568059677961223, guid: b43cb4328d54a364a9340a3034d244be, type: 3}
-    weight: 1
-  - itemToDrop: {fileID: 2977120666148624746, guid: 93d02b6716b9ef2429149cf4786e52ac, type: 3}
     weight: 2
+  - itemToDrop: {fileID: 2977120666148624746, guid: 93d02b6716b9ef2429149cf4786e52ac, type: 3}
+    weight: 3
   - itemToDrop: {fileID: 328140725587854160, guid: 76c444114fb878e4c8bacca79abae596, type: 3}
-    weight: 5
+    weight: 6
+  - itemToDrop: {fileID: 782504158138784442, guid: 39383df19e6ab534bbf58400fc0e8739, type: 3}
+    weight: 1
   offset: {x: 0, y: 2.25, z: 0}
 --- !u!1 &2008302167824736809
 GameObject:

@@ -21,9 +21,10 @@ public class GameManager : MonoBehaviour
     public float playerHealth;
     public Weapon playerWeapon;
 
-    // Canvas's for game over and pause
+    // Canvas's for game over and pause and win
     public Canvas pauseMenu;
     public Canvas gameOver;
+    public Canvas WinScreen;
 
     // Any time a GameManager is spawned it sets the static Instance variable to reference itself
     private void Awake()
@@ -34,6 +35,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isPaused = false;
+        Time.timeScale = 1f;
+
         // Player = GameObject.FindGameObjectWithTag("Player");
         SpawnPlayer();
 
@@ -116,5 +120,12 @@ public class GameManager : MonoBehaviour
     public void ButtonContinue()
     {
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void WinGame()
+    {
+        isPaused = true; // sett bool to true
+        Time.timeScale = 0f; // time scale to 0, time stops
+        WinScreen.enabled = true;
     }
 }
