@@ -242,6 +242,7 @@ MonoBehaviour:
   firePoint: {fileID: 970094460}
   accuracy: 0.604
   maxWeaponAccuracyAngle: 10
+  muzzleFlashParticle: {fileID: 0}
   shotSound: {fileID: 8300000, guid: 79b5d3507824f2943adfe927a505c71c, type: 3}
 --- !u!1001 &8243380885378291408
 PrefabInstance:

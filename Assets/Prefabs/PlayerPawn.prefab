@@ -4215,7 +4215,7 @@ MonoBehaviour:
   Pistol: {fileID: 1368992054, guid: 4be351e579ecc0a47acfea7b5d58a9bb, type: 3}
   Rifle: {fileID: 759100614, guid: f7d3d834b14a54d48aac624e0e5978c8, type: 3}
   Shotgun: {fileID: 1972333808, guid: 929956f4588e9eb49b1dff0f1fb16a8c, type: 3}
-  CheatsEnabled: 1
+  CheatsEnabled: 0
   StartWithPistol: 1
   StartWithRifle: 0
   StartWithShotgun: 0
