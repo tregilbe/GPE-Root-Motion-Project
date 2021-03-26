@@ -14,9 +14,15 @@ public class WeaponRifle : Weapon
     [Range(0, 1)] public float accuracy;
     public float maxWeaponAccuracyAngle = 10;
 
+    // Audio
+    private AudioSource audioSource;
+    public AudioClip shotSound;
+
     // Start is called before the first frame update
     public override void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         nextShootTime = Time.time;
         base.Start();
     }
@@ -92,6 +98,12 @@ public class WeaponRifle : Weapon
             Bullet myBulletScript = myBullet.GetComponent<Bullet>();
 
             myBulletScript.origin = GetComponentInParent<Transform>();
+
+            // Play audio
+            if (audioSource)
+            {
+                audioSource.PlayOneShot(shotSound);
+            }
 
             // TODO: Send all appropriate data to the bullet
             myBulletScript.damageDone = damageDone;
