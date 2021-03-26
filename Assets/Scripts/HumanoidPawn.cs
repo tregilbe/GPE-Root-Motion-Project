@@ -34,6 +34,8 @@ public class HumanoidPawn : Pawn
     public bool StartWithRifle = false;
     public bool StartWithShotgun = false;
 
+    public ParticleSystem hitEffect;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -278,6 +280,14 @@ public class HumanoidPawn : Pawn
         if (weapon != null)
         {
             weapon.enabled = true;
+        }
+    }
+
+    public void EmitParticles()
+    {
+        if (hitEffect)
+        {
+            hitEffect.Emit(50);
         }
     }
 }

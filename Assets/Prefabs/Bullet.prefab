@@ -128,4 +128,6 @@ MonoBehaviour:
   fireSpeed: 10
   damageDone: 0
   owner: {fileID: 0}
+  origin: {fileID: 0}
   lifespan: 1.5
+  hitEffect: {fileID: 884723989940127626, guid: fdcb1dc6f8f49f9499415ab636c7a3e2, type: 3}

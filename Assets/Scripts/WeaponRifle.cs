@@ -14,6 +14,8 @@ public class WeaponRifle : Weapon
     [Range(0, 1)] public float accuracy;
     public float maxWeaponAccuracyAngle = 10;
 
+    public ParticleSystem muzzleFlashParticle;
+
     // Audio
     private AudioSource audioSource;
     public AudioClip shotSound;
@@ -51,6 +53,10 @@ public class WeaponRifle : Weapon
     public void MuzzleFlash()
     {
         // TODO: Create muzzle flash
+        if (muzzleFlashParticle)
+        {
+            muzzleFlashParticle.Emit(50);
+        }
     }
 
     public void StatFullAuto()

@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
 
     private Rigidbody rb;
 
+    public ParticleSystem hitEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +61,13 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        // Destroy this bullet
-        Destroy(gameObject);
+        // Particle Effect
+        if (otherObject.tag == "Enemy" || otherObject.tag == "Player")
+        {
+            otherObject.GetComponent<HumanoidPawn>().EmitParticles();
+        }
+
+            // Destroy this bullet
+            Destroy(gameObject);
     }
 }
